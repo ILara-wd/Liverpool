@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.GridLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import com.grupoasesores.liverpool.R
 import com.grupoasesores.liverpool.service.model.APIError
 import com.grupoasesores.liverpool.service.model.QueryOutput
 import com.grupoasesores.liverpool.service.model.Record
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ImplMainView {
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity(), ImplMainView {
         tvSearch = findViewById(R.id.tv_search)
 
         findViewById<Button>(R.id.btn_search)
-            .setOnClickListener{
+            .setOnClickListener {
                 val searchText = tvSearch.text.toString()
                 if (searchText.isNotEmpty()){
                     tvSearch.setText("")
@@ -34,11 +37,12 @@ class MainActivity : AppCompatActivity(), ImplMainView {
                 }else{
                     tvSearch.error = getString(R.string.text_et_search)
                 }
-        }
+            }
     }
 
     override fun showProducts(record: List<Record>) {
-
+        rvProducts.layoutManager = GridLayoutManager(this, 2)
+        rvProducts.adapter = ProductAdapter(this, record)
     }
 
     override fun error(error: APIError) {
