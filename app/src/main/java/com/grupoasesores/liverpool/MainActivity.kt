@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        WebServicesCompendium.getInfoMovie(QueryOutput("sofá", 1))
+        //WebServicesCompendium.getInfoMovie(QueryOutput("sofá", 1))
         super.onResume()
     }
 
