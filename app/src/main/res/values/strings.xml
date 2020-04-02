@@ -2,4 +2,5 @@
     <string name="app_name">Liverpool</string>
     <string name="text_tv_search">Criterio de búsqueda</string>
     <string name="text_btn_search">Buscar</string>
+    <string name="text_et_search">Llene el campo de búsqueda</string>
 </resources>
