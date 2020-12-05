@@ -9,9 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.grupoasesores.liverpool.LiverpoolTools
 import com.grupoasesores.liverpool.R
+import com.grupoasesores.liverpool.service.model.LiverpoolProducts
 import com.grupoasesores.liverpool.service.model.Record
 
-class ProductAdapter (private val mActivity: Activity, private val items: List<Record>)
+class ProductAdapter (private val mActivity: Activity, private val items: List<LiverpoolProducts.Record>)
     : RecyclerView.Adapter<ProductAdapter.MainViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {

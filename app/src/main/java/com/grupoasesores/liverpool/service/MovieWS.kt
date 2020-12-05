@@ -3,6 +3,7 @@ package com.grupoasesores.liverpool.service
 
 import com.google.gson.Gson
 import com.grupoasesores.liverpool.service.model.APIError
+import com.grupoasesores.liverpool.service.model.LiverpoolProducts
 import com.grupoasesores.liverpool.service.model.LiverpoolProductsInput
 import com.grupoasesores.liverpool.service.model.QueryOutput
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 
 object MovieWS {
 
-    fun getMovieDetail(query: QueryOutput, handler: (error: APIError?, response: LiverpoolProductsInput?) -> Unit) {
+    fun getMovieDetail(query: QueryOutput, handler: (error: APIError?, response: LiverpoolProducts?) -> Unit) {
         val movieApi = ApiFactory.movieApi
 
         GlobalScope.launch(Dispatchers.Main) {
@@ -29,7 +30,7 @@ object MovieWS {
                     return@launch
                 }
 
-                val body: LiverpoolProductsInput? = response.body()
+                val body: LiverpoolProducts? = response.body()
 
                 if (body == null) {
                     handler(APIError(678, "no products available"), null)

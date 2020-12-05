@@ -1,5 +1,6 @@
 package com.grupoasesores.liverpool.service
 
+import com.grupoasesores.liverpool.service.model.LiverpoolProducts
 import com.grupoasesores.liverpool.service.model.LiverpoolProductsInput
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
@@ -13,6 +14,6 @@ interface MovieApi {
     @GET("plp?force-plp=true&number-of-items-per-page=20")
     fun getMoviesByGenreAsync(
         @Query("search-string") search_string: String,
-        @Query("page-number") page_number: Int ) : Deferred<Response<LiverpoolProductsInput>>
+        @Query("page-number") page_number: Int ) : Deferred<Response<LiverpoolProducts>>
 
 }

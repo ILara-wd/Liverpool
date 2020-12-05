@@ -4,13 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.GridLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.grupoasesores.liverpool.R
 import com.grupoasesores.liverpool.service.model.APIError
+import com.grupoasesores.liverpool.service.model.LiverpoolProducts
 import com.grupoasesores.liverpool.service.model.QueryOutput
-import com.grupoasesores.liverpool.service.model.Record
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ImplMainView {
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity(), ImplMainView {
             }
     }
 
-    override fun showProducts(record: List<Record>) {
+    override fun showProducts(record: List<LiverpoolProducts.Record>) {
         rvProducts.layoutManager = GridLayoutManager(this, 2)
         rvProducts.adapter = ProductAdapter(this, record)
     }
